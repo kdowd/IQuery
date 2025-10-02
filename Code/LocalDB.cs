@@ -1,11 +1,10 @@
 ﻿
-
-
 namespace IQuery.Code
 {
     public class LocalDB
     {
-        public List<Customer> Customers { get; } = new List<Customer>
+        // add customers at instantiation
+        private List<Customer> CustomersList = new()
         {
             new Customer(4, "Sungji", Products.Shirt),
             new Customer(20, "Sunny", Products.Golf),
@@ -24,9 +23,15 @@ namespace IQuery.Code
             new Customer(100, "Masrafe", Products.Shirt)
         };
 
+        public LocalDB()
+        {
+            Console.WriteLine("Local DB class instantiated");
+        }
+
         public IQueryable<Customer> GetCustomersQueryable()
         {
-            return Customers.AsQueryable();
+            // makes a copy and returns it for use by LINQ
+            return CustomersList.AsQueryable();
         }
 
     }

@@ -1,6 +1,4 @@
-﻿using System;
-
-
+﻿
 namespace IQuery.Code
 {
     public enum Products
